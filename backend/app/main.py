@@ -1,12 +1,10 @@
 from fastapi import FastAPI
 
+from app.api.routes import router
+
 app = FastAPI(
     title="ReleaseIQ API",
     version="1.0.0"
 )
 
-@app.get("/")
-def root():
-    return {
-        "message": "ReleaseIQ API is running!"
-    }
+app.include_router(router)
